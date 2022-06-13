@@ -5,9 +5,7 @@ services:
     build:
       context: .
     volumes:
-      - .:/elasticsearch
-    depends_on:
-      - elasticsearch
+      - .:/main
     ports:
       - '8888:8888'
     env_file:
