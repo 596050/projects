@@ -7,8 +7,8 @@ ARG NB_GID=100
 USER root
 
 RUN apt-get update  && \
-    apt-get install build-essential cmake libgl1 -y
-    #RUN apt-get ffmpeg libsm6 libxext6  -y
+    apt-get install build-essential cmake ffmpeg libsm6 libxext6 -y
+# libgl1
 # RUN apt-get install build-essential cmake pkg-config libx11-dev libatlas-base-dev libgtk-3-dev libboost-python-dev -y
 COPY requirements.txt requirements.txt
 RUN pip install -U -r requirements.txt
