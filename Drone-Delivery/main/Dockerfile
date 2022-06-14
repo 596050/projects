@@ -6,25 +6,20 @@ ARG NB_GID=100
 
 USER root
 
+RUN apt-get update  && \
+    apt-get install build-essential cmake libgl1 -y
+    #RUN apt-get ffmpeg libsm6 libxext6  -y
+# RUN apt-get install build-essential cmake pkg-config libx11-dev libatlas-base-dev libgtk-3-dev libboost-python-dev -y
+COPY requirements.txt requirements.txt
+RUN pip install -U -r requirements.txt
+
+ENV JUPYTER_ENABLE_LAB=yes
+
+# ENV DOCKER_STACKS_JUPYTER_CMD="notebook" 
+
+
 WORKDIR /main
 
-RUN apt-get update && \
-    apt-get install -y openjdk-11-jre-headless && \
-    apt-get install -y ant && \
-    apt-get clean;
+# CMD jupyter trust './face_recognition.ipynb'
 
-RUN apt-get update && \
-    apt-get install -y ca-certificates-java && \
-    apt-get clean && \
-    update-ca-certificates -f;
-
-ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64/
-RUN export JAVA_HOME
-
-ENV DOCKER_STACKS_JUPYTER_CMD="notebook" 
-
-RUN pip install -U numpy pandas dlib cv2 matplotlib _pickle
-
-CMD jupyter trust './face_recognition.ipynb'
-
-ENTRYPOINT [ "jupyter", "notebook", "--no-browser", "--NotebookApp.token=''", "--NotebookApp.password=''", "--allow-root" ]
+# ENTRYPOINT [ "jupyter", "notebook", "--ip='*'", "--no-browser", "--NotebookApp.token=''", "--NotebookApp.password=''", "--allow-root" ]
