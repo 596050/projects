@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="title">NER</h1>
+<p>
+    Results are based on model <a href="https://huggingface.co/dslim/bert-base-NER">dslim__bert-base-ner</a>, and model
+    must be imported into Elasticsearch cluster to function properly.
+</p>
+
+{% if model_up %}
+<section class="section">
+    <div class="box has-background-warning-light">
+        <p>
+            <b>Try one of the following examples:</b>
+        <ul>
+            <li>There are many people working for Elastic in North America and the United States</li>
+            <li>My name is Bob Marley and I work for Elastic which has an office in Jamaica.</li>
+            <li>The grill from Acme store in Golden, Colorodo is the best - Lisa</li>
+        </ul>
+        </p>
+    </div>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+        <div class="field">
+            {{ form.searchbox.label(class_="label") }}
+            {{ form.searchbox(size=32, class_="input is-info") }}
+        </div>
+        </p>
+
+        <p>{{ form.submit(class_="button is-info") }}</p>
+    </form>
+</section>
+
+{% if search_results %}
+
+<section class="section">
+    <div class="container">
+        Search Query: {{ query }}
+        <hr>
+        <p> Predicted value: <strong>{{ search_results.predicted_value }}</strong></p>
+
+        {% for entity in search_results.entities %}
+        <p>
+        <ul>
+            <li>Entity: <strong>{{ entity.entity }}</strong></li>
+            <li>Class name: <strong>{{ entity.class_name }}</strong></li>
+            <li>Class probability: {{ entity.class_probability }}</li>
+        </ul>
+        <hr>
+        </p>
+        {% endfor %}
+    </div>
+</section>
+
+{% endif %}
+
+{% else %}
+<div class="box has-background-danger-light">
+    <p>
+        <strong> The NLP model ({{ model_name }}) required for this task is unavailable in Elasticsearch cluster. </br>Please make sure
+            the model is up and running.</strong>
+    </p>
+</div>
+
+{% endif %}
+
+{% endblock %}
