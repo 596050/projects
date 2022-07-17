@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_app/screens/chats/chats_screen.dart';
+import 'package:flutter_test_app/screens/home/home.dart';
+import 'package:flutter_test_app/screens/messages/message_screen.dart';
 import 'package:flutter_test_app/theme.dart';
+
+import 'match.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,11 +15,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Lemon Drop',
       debugShowCheckedModeBanner: false,
       theme: lightThemeData(context),
       darkTheme: darkThemeData(context),
-      home: ChatsScreen(),
+      initialRoute: 'home',
+      routes: {
+        'home': (context) => HomeScreen(),
+        'register': (context) => ChatsScreen(),
+        'messages': (context) => MessagesScreen(),
+        'mainswipe': (context) => MatchScreen(),
+      },
     );
   }
 }

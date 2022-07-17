@@ -5,16 +5,16 @@ import 'package:swipe_cards/swipe_cards.dart';
 import 'content.dart';
 
 class MatchScreen extends StatefulWidget {
-  MatchScreen({Key? key, this.title}) : super(key: key);
+  const MatchScreen({Key? key, this.title}) : super(key: key);
   final String? title;
   @override
   _MatchScreenState createState() => _MatchScreenState();
 }
 
 class _MatchScreenState extends State<MatchScreen> {
-  List<SwipeItem> _swipeItems = <SwipeItem>[];
+  final List<SwipeItem> _swipeItems = <SwipeItem>[];
   MatchEngine? _matchEngine;
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   final List<String> _names = [
     "Red",
     "Blue",
@@ -25,7 +25,7 @@ class _MatchScreenState extends State<MatchScreen> {
     "Purple",
     "Pink"
   ];
-  List<Color> _colors = [
+  final List<Color> _colors = [
     Colors.red,
     Colors.blue,
     Colors.green,
@@ -44,19 +44,19 @@ class _MatchScreenState extends State<MatchScreen> {
           likeAction: () {
             _scaffoldKey.currentState?.showSnackBar(SnackBar(
               content: Text("Liked ${_names[i]}"),
-              duration: Duration(milliseconds: 500),
+              duration: const Duration(milliseconds: 500),
             ));
           },
           nopeAction: () {
             _scaffoldKey.currentState?.showSnackBar(SnackBar(
               content: Text("Nope ${_names[i]}"),
-              duration: Duration(milliseconds: 500),
+              duration: const Duration(milliseconds: 500),
             ));
           },
           superlikeAction: () {
             _scaffoldKey.currentState?.showSnackBar(SnackBar(
               content: Text("Superliked ${_names[i]}"),
-              duration: Duration(milliseconds: 500),
+              duration: const Duration(milliseconds: 500),
             ));
           },
           onSlideUpdate: (SlideRegion? region) async {
@@ -72,9 +72,6 @@ class _MatchScreenState extends State<MatchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: _scaffoldKey,
-        appBar: AppBar(
-          title: Text("HELLO"),
-        ),
         body: Container(
             child: Stack(children: [
           Container(
@@ -92,7 +89,7 @@ class _MatchScreenState extends State<MatchScreen> {
                 );
               },
               onStackFinished: () {
-                _scaffoldKey.currentState!.showSnackBar(SnackBar(
+                _scaffoldKey.currentState!.showSnackBar(const SnackBar(
                   content: Text("Stack Finished"),
                   duration: Duration(milliseconds: 500),
                 ));
@@ -111,17 +108,17 @@ class _MatchScreenState extends State<MatchScreen> {
                   onPressed: () {
                     _matchEngine!.currentItem?.nope();
                   },
-                  child: Text("Nope")),
+                  child: const Text("Nope")),
               ElevatedButton(
                   onPressed: () {
                     _matchEngine!.currentItem?.superLike();
                   },
-                  child: Text("Superlike")),
+                  child: const Text("Superlike")),
               ElevatedButton(
                   onPressed: () {
                     _matchEngine!.currentItem?.like();
                   },
-                  child: Text("Like"))
+                  child: const Text("Like"))
             ],
           )
         ])));

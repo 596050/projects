@@ -13,7 +13,6 @@ class _ChatsScreenState extends State<ChatsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
       body: Body(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -23,41 +22,6 @@ class _ChatsScreenState extends State<ChatsScreen> {
           color: Colors.white,
         ),
       ),
-      bottomNavigationBar: buildBottomNavigationBar(),
-    );
-  }
-
-  BottomNavigationBar buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      currentIndex: _selectedIndex,
-      onTap: (value) {
-        setState(() {
-          _selectedIndex = value;
-        });
-      },
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: "Profile",
-        ),
-        BottomNavigationBarItem(icon: Icon(Icons.swipe), label: "Swipe"),
-        BottomNavigationBarItem(icon: Icon(Icons.messenger), label: "Chats"),
-        BottomNavigationBarItem(icon: Icon(Icons.speed), label: "Speed"),
-      ],
-    );
-  }
-
-  AppBar buildAppBar() {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      title: Text("Chats"),
-      actions: [
-        IconButton(
-          icon: Icon(Icons.search),
-          onPressed: () {},
-        ),
-      ],
     );
   }
 }
