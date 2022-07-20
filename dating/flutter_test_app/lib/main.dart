@@ -19,12 +19,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: lightThemeData(context),
       darkTheme: darkThemeData(context),
-      initialRoute: 'home',
+      initialRoute: HomeScreen.id,
       routes: {
-        'home': (context) => HomeScreen(),
-        'register': (context) => ChatsScreen(),
-        'messages': (context) => MessagesScreen(),
-        'mainswipe': (context) => MatchScreen(),
+        HomeScreen.id: (context) => HomeScreen(),
+        ChatsScreen.id: (context) => ChatsScreen(),
+        MessagesScreen.id: (context) => MessagesScreen(),
+        MatchScreen.id: (context) => MatchScreen(),
       },
     );
   }

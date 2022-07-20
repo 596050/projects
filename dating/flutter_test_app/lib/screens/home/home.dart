@@ -5,6 +5,8 @@ import 'package:flutter_test_app/screens/profile/profile.dart';
 import '../../match.dart';
 
 class HomeScreen extends StatefulWidget {
+  static String id = 'home_screen';
+
   @override
   State<StatefulWidget> createState() {
     return _HomeScreenState();

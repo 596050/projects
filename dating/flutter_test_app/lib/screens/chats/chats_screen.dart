@@ -4,6 +4,7 @@ import 'package:flutter_test_app/constants.dart';
 import 'components/body.dart';
 
 class ChatsScreen extends StatefulWidget {
+  static String id = 'chat_screen';
   @override
   _ChatsScreenState createState() => _ChatsScreenState();
 }

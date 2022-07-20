@@ -5,6 +5,7 @@ import 'package:swipe_cards/swipe_cards.dart';
 import 'content.dart';
 
 class MatchScreen extends StatefulWidget {
+  static String id = 'match_screen';
   const MatchScreen({Key? key, this.title}) : super(key: key);
   final String? title;
   @override

@@ -1,5 +1,5 @@
-import 'package:flutter_test_app/models/ChatMessage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test_app/models/ChatMessage.dart';
 
 import '../../../constants.dart';
 
@@ -11,7 +11,7 @@ class AudioMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.55,
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: kDefaultPadding * 0.75,
         vertical: kDefaultPadding / 2.5,
       ),

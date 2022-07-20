@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_app/models/ChatMessage.dart';
+import 'package:flutter_test_app/screens/messages/components/video_message.dart';
 
 import '../../../constants.dart';
 import 'audio_message.dart';
 import 'text_message.dart';
-import 'video_message.dart';
 
 class Message extends StatelessWidget {
   const Message({
@@ -25,31 +25,34 @@ class Message extends StatelessWidget {
         case ChatMessageType.video:
           return VideoMessage();
         default:
-          return SizedBox();
+          return const SizedBox(width: kDefaultPadding / 2);
       }
     }
 
     return Padding(
-        padding: const EdgeInsets.only(top: kDefaultPadding),
-        child: Expanded(
-          child: Row(
-            mainAxisAlignment: message.isSender
-                ? MainAxisAlignment.end
-                : MainAxisAlignment.start,
-            children: [
-              if (!message.isSender) ...[
-                const CircleAvatar(
-                  radius: 12,
-                  backgroundImage: AssetImage("assets/images/user_2.png"),
-                ),
-                const SizedBox(width: kDefaultPadding / 2),
-              ],
-              messageContaint(message),
-              if (message.isSender)
-                MessageStatusDot(status: message.messageStatus)
+      padding: const EdgeInsets.only(top: kDefaultPadding),
+      child: Expanded(
+        flex: 1,
+        child: Row(
+          // mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: message.isSender
+              ? MainAxisAlignment.end
+              : MainAxisAlignment.start,
+          children: [
+            if (!message.isSender) ...[
+              const CircleAvatar(
+                radius: 12,
+                backgroundImage: AssetImage("assets/images/user_2.png"),
+              ),
+              const SizedBox(width: kDefaultPadding / 2),
             ],
-          ),
-        ));
+            Expanded(flex: 1, child: messageContaint(message)),
+            if (message.isSender)
+              MessageStatusDot(status: message.messageStatus)
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -73,11 +76,11 @@ class MessageStatusDot extends StatelessWidget {
     }
 
     return Container(
-      margin: EdgeInsets.only(left: kDefaultPadding / 2),
+      margin: const EdgeInsets.only(left: kDefaultPadding / 2),
       height: 12,
       width: 12,
       // decoration: BoxDecoration(color: color),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         // color: dotColor(status!),
         shape: BoxShape.circle,
       ),
