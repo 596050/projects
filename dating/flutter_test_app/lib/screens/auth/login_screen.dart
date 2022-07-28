@@ -2,8 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_app/constants.dart';
 import 'package:get_it/get_it.dart';
+import 'package:provider/provider.dart';
 
 //Services
+import '../../providers/authentication_provider.dart';
 import '../../services/navigation_service.dart';
 //Widgets
 import '../../widgets/custom_input_fields.dart';
@@ -21,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   late double _deviceHeight;
   late double _deviceWidth;
 
-  // late AuthenticationProvider _auth;
+  late AuthenticationProvider _auth;
   late NavigationService _navigation;
 
   final _loginFormKey = GlobalKey<FormState>();
@@ -33,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     _deviceHeight = MediaQuery.of(context).size.height;
     _deviceWidth = MediaQuery.of(context).size.width;
-    // _auth = Provider.of<AuthenticationProvider>(context);
+    _auth = Provider.of<AuthenticationProvider>(context);
     _navigation = GetIt.instance.get<NavigationService>();
     return _buildUI();
   }
@@ -116,7 +118,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
               hintText: "Email",
               obscureText: false,
-              controller: TextEditingController(),
             ),
             CustomTextFormField(
               onSaved: (_value) {
@@ -127,7 +128,6 @@ class _LoginScreenState extends State<LoginScreen> {
               regEx: r".{8,}",
               hintText: "Password",
               obscureText: true,
-              controller: TextEditingController(),
             ),
           ],
         ),
@@ -143,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
       onPressed: () {
         if (_loginFormKey.currentState!.validate()) {
           _loginFormKey.currentState!.save();
-          // _auth.loginUsingEmailAndPassword(_email!, _password!);
+          _auth.loginUsingEmailAndPassword(_email!, _password!);
         }
       },
     );

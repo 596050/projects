@@ -7,19 +7,16 @@ class CustomTextFormField extends StatelessWidget {
   final String regEx;
   final String hintText;
   final bool obscureText;
-  final TextEditingController controller;
 
   CustomTextFormField(
       {required this.onSaved,
       required this.regEx,
       required this.hintText,
-      required this.obscureText,
-      required this.controller});
+      required this.obscureText});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
       onSaved: (_value) => onSaved(_value!),
       cursorColor: kPrimaryColor,
       style: const TextStyle(
@@ -42,7 +39,7 @@ class CustomTextFormField extends StatelessWidget {
         hintText: hintText,
         hintStyle: TextStyle(color: kPrimaryColor.withOpacity(0.84)),
         suffixIcon: IconButton(
-          onPressed: controller.clear,
+          onPressed: () {},
           icon: const Icon(Icons.clear),
           color: kPrimaryColor,
           focusColor: kPrimaryColor,
