@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 const kPrimaryColor = Color(0xFFFFFFFF);
 const kSecondaryColor = Color(0xFFFE9901);
-const kContentColorLightTheme = Color(0xFF000000);
+const kContentColorLightTheme = Color.fromRGBO(30, 29, 37, 1.0);
+// Color(0xFF000000);
 const kWarningColor = Color(0xFFF3BB1C);
 const kErrorColor = Color(0xFFF03738);
 

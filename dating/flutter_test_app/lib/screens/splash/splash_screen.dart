@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../constants.dart';
+import '../../services/cloud_storage_service.dart';
+import '../../services/database_service.dart';
 import '../../services/media_service.dart';
 import '../../services/navigation_service.dart';
 
@@ -31,7 +33,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3)).then(
+    Future.delayed(const Duration(seconds: 1)).then(
       (_) {
         _setup().then(
           (_) => widget.onInitializationComplete(),
@@ -79,11 +81,11 @@ class _SplashPageState extends State<SplashPage> {
     GetIt.instance.registerSingleton<MediaService>(
       MediaService(),
     );
-  //   GetIt.instance.registerSingleton<CloudStorageService>(
-  //     CloudStorageService(),
-  //   );
-  //   GetIt.instance.registerSingleton<DatabaseService>(
-  //     DatabaseService(),
-  //   );
+    GetIt.instance.registerSingleton<CloudStorageService>(
+      CloudStorageService(),
+    );
+    GetIt.instance.registerSingleton<DatabaseService>(
+      DatabaseService(),
+    );
   }
 }

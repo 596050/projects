@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_app/screens/auth/login_screen.dart';
 import 'package:flutter_test_app/screens/chats/chats_screen.dart';
 import 'package:flutter_test_app/screens/home/home.dart';
 import 'package:flutter_test_app/screens/messages/message_screen.dart';
 import 'package:flutter_test_app/screens/splash/splash_screen.dart';
+import 'package:flutter_test_app/services/navigation_service.dart';
 import 'package:flutter_test_app/theme.dart';
 
 import 'match.dart';
@@ -32,14 +34,16 @@ class MainApp extends StatelessWidget {
       title: 'Lemon Drop',
       debugShowCheckedModeBanner: false,
       theme: lightThemeData(context),
-      initialRoute: HomeScreen.id,
+      navigatorKey: NavigationService.navigatorKey,
+      initialRoute: LoginScreen.id,
       routes: {
-        HomeScreen.id: (context) => HomeScreen(),
-        ChatsScreen.id: (context) => ChatsScreen(),
-        MessagesScreen.id: (context) => MessagesScreen(),
-        MatchScreen.id: (context) => MatchScreen(),
-        MatchSettingsScreen.id: (context) => MatchSettingsScreen(),
-        ProfileScreen.id: (context) => ProfileScreen(),
+        LoginScreen.id: (BuildContext context) => LoginScreen(),
+        HomeScreen.id: (BuildContext context) => HomeScreen(),
+        ChatsScreen.id: (BuildContext context) => ChatsScreen(),
+        MessagesScreen.id: (BuildContext context) => MessagesScreen(),
+        MatchScreen.id: (BuildContext context) => MatchScreen(),
+        MatchSettingsScreen.id: (BuildContext context) => MatchSettingsScreen(),
+        ProfileScreen.id: (BuildContext context) => ProfileScreen(),
       },
     );
   }
