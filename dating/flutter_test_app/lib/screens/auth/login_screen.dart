@@ -49,22 +49,22 @@ class _LoginScreenState extends State<LoginScreen> {
         width: _deviceWidth,
         child: Column(
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _pageTitle(),
             SizedBox(
-              height: _deviceHeight * 0.04,
+              height: _deviceHeight * 0.02,
             ),
+            _pageTitle(),
             _loginForm(),
             SizedBox(
-              height: _deviceHeight * 0.02,
+              height: _deviceHeight * 0.001,
             ),
             _loginButton(),
-            SizedBox(
-              height: _deviceHeight * 0.02,
-            ),
             _registerAccountLink(),
+            SizedBox(
+              height: _deviceHeight * 0.001,
+            ),
           ],
         ),
       ),
@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _pageTitle() {
     return Container(
-      height: _deviceHeight * 0.12,
+      height: _deviceHeight * 0.14,
       child: Scaffold(
         body: Center(
           child: Container(
