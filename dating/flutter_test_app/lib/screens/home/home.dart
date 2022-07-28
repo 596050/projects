@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_app/constants.dart';
 import 'package:flutter_test_app/screens/chats/chats_screen.dart';
 import 'package:flutter_test_app/screens/profile/profile.dart';
 
@@ -41,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
           _selectedIndex = value;
         });
       },
-      showSelectedLabels: true,
+      showSelectedLabels: false,
       showUnselectedLabels: false,
       items: const [
         BottomNavigationBarItem(
@@ -66,8 +67,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   AppBar buildAppBar() {
     return AppBar(
+      elevation: 0,
+      centerTitle: true,
       automaticallyImplyLeading: false,
-      title: const Text("Oscar Sucks"),
+      title: const Text("Lemon"),
+      backgroundColor: kPrimaryColor,
+      foregroundColor: kContentColorLightTheme,
+         bottom: PreferredSize(
+      child: Container(
+         color: kContentColorLightTheme,
+         height: 2,
+      ),
+      preferredSize: Size.fromHeight(2.0)),
       actions: [
         Padding(
           padding: const EdgeInsets.all(8.0),

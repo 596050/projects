@@ -56,7 +56,7 @@ class ChatCard extends StatelessWidget {
                     Text(
                       chat.name,
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                          const TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: kContentColorLightTheme),
                     ),
                     SizedBox(height: 8),
                     Opacity(

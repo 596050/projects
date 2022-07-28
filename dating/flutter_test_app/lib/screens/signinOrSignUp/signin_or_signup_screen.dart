@@ -17,8 +17,8 @@ class SigninOrSignupScreen extends StatelessWidget {
               const Spacer(flex: 2),
               Image.asset(
                 MediaQuery.of(context).platformBrightness == Brightness.light
-                    ? "assets/images/logo.jpeg"
-                    : "assets/images/logo.jpeg",
+                    ? "assets/images/oscar.jpeg"
+                    : "assets/images/oscar.jpeg",
                 height: 146,
               ),
               const Spacer(),

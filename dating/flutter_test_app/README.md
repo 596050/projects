@@ -17,3 +17,6 @@ samples, guidance on mobile development, and a full API reference.
 
 
 https://www.youtube.com/watch?v=hAKQzNQmNe0&ab_channel=FlutterExplained
+
+https://www.svgrepo.com/collection/circled-simple-line-icons/
+

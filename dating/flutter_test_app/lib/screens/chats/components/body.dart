@@ -20,9 +20,11 @@ class Body extends StatelessWidget {
               FillOutlineButton(press: () {}, text: "Recent Message"),
               SizedBox(width: kDefaultPadding),
               FillOutlineButton(
+                
                 press: () {},
                 text: "Active",
                 isFilled: false,
+                
               ),
             ],
           ),

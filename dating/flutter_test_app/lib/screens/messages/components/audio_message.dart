@@ -23,7 +23,7 @@ class AudioMessage extends StatelessWidget {
         children: [
           Icon(
             Icons.play_arrow,
-            color: message!.isSender ? Colors.white : kPrimaryColor,
+            color: message!.isSender ? kPrimaryColor : kContentColorLightTheme,
           ),
           Expanded(
             child: Padding(
@@ -46,7 +46,7 @@ class AudioMessage extends StatelessWidget {
                       height: 8,
                       width: 8,
                       decoration: BoxDecoration(
-                        color: message!.isSender ? Colors.white : kPrimaryColor,
+                        color: message!.isSender ?  kPrimaryColor:kContentColorLightTheme,
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -58,7 +58,7 @@ class AudioMessage extends StatelessWidget {
           Text(
             "0.37",
             style: TextStyle(
-                fontSize: 12, color: message!.isSender ? Colors.white : null),
+                fontSize: 12, color: message!.isSender ? kPrimaryColor : null),
           ),
         ],
       ),

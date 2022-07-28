@@ -30,7 +30,7 @@ class TextMessage extends StatelessWidget {
         message!.text,
         style: TextStyle(
           color: message!.isSender
-              ? Colors.white
+              ? kPrimaryColor
               : Theme.of(context).textTheme.bodyText1!.color,
         ),
       ),

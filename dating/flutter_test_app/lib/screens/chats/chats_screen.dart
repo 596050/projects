@@ -20,7 +20,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
         backgroundColor: kPrimaryColor,
         child: const Icon(
           Icons.person_add_alt_1,
-          color: Colors.white,
+          color: kContentColorLightTheme,
         ),
       ),
     );
