@@ -32,15 +32,13 @@ class AuthenticationProvider extends ChangeNotifier {
           (_snapshot) {
             Map<String, dynamic> _userData =
                 _snapshot.data()! as Map<String, dynamic>;
-            print("_userData");
-            print(_userData);
             user = ChatUser.fromJSON(
               {
                 "uid": _user.uid,
                 "name": _userData["name"],
                 "email": _userData["email"],
                 "last_active": _userData["last_active"],
-                "image": _userData["imageURL"],
+                "image": _userData["image"],
               },
             );
             _navigationService.removeAndNavigateToRoute(HomeScreen.id);

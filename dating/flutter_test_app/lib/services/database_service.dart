@@ -14,12 +14,12 @@ class DatabaseService {
   DatabaseService() {}
 
   Future<void> createUser(
-      String _uid, String _email, String _name, String _imageURL) async {
+      String _uid, String _email, String _name, String _image) async {
     try {
       await _db.collection(USER_COLLECTION).doc(_uid).set(
         {
           "email": _email,
-          "image": _imageURL,
+          "image": _image,
           "last_active": DateTime.now().toUtc(),
           "name": _name,
         },
