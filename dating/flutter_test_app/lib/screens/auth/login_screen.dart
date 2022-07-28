@@ -43,10 +43,10 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Container(
         padding: EdgeInsets.symmetric(
           horizontal: _deviceWidth * 0.03,
-          vertical: _deviceHeight * 0.02,
+          vertical: _deviceHeight * 0.01,
         ),
-        height: _deviceHeight * 0.98,
-        width: _deviceWidth * 0.97,
+        height: _deviceHeight,
+        width: _deviceWidth,
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -58,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             _loginForm(),
             SizedBox(
-              height: _deviceHeight * 0.05,
+              height: _deviceHeight * 0.02,
             ),
             _loginButton(),
             SizedBox(
@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _pageTitle() {
     return Container(
-      height: _deviceHeight * 0.10,
+      height: _deviceHeight * 0.12,
       child: Scaffold(
         body: Center(
           child: Container(
