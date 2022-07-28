@@ -20,3 +20,12 @@ https://www.youtube.com/watch?v=hAKQzNQmNe0&ab_channel=FlutterExplained
 
 https://www.svgrepo.com/collection/circled-simple-line-icons/
 
+
+
+- Login Form
+--Better and more responsive layout if changes occur to widget's size
+--How to stop overflows
+--allow for space on validator/error text appearing 
+--cursor color
+--splash color for clear button 
+--spalsh color for login button
