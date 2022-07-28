@@ -57,9 +57,6 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             _pageTitle(),
             _loginForm(),
-            SizedBox(
-              height: _deviceHeight * 0.001,
-            ),
             _loginButton(),
             _registerAccountLink(),
             SizedBox(
@@ -101,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _loginForm() {
     return Container(
-      height: _deviceHeight * 0.18,
+      height: _deviceHeight * 0.2,
       child: Form(
         key: _loginFormKey,
         child: Column(
