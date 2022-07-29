@@ -8,13 +8,10 @@ import 'package:provider/provider.dart';
 import '../../providers/authentication_provider.dart';
 import '../../services/cloud_storage_service.dart';
 import '../../services/database_service.dart';
-//Services
-import '../../services/media_service.dart';
 import '../../services/navigation_service.dart';
 //Widgets
 import '../../widgets/custom_input_fields.dart';
 import '../../widgets/rounded_button.dart';
-import '../../widgets/rounded_image.dart';
 
 class RegisterScreen extends StatefulWidget {
   static String id = 'register_screen';
@@ -58,22 +55,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
       body: Container(
         padding: EdgeInsets.symmetric(
           horizontal: _deviceWidth * 0.03,
-          vertical: _deviceHeight * 0.02,
+          vertical: _deviceHeight * 0.01,
         ),
-        height: _deviceHeight * 0.98,
-        width: _deviceWidth * 0.97,
+        height: _deviceHeight,
+        width: _deviceWidth,
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _profileImageField(),
             SizedBox(
-              height: _deviceHeight * 0.05,
+              height: _deviceHeight * 0.02,
+            ),
+            _pageTitle(),
+            SizedBox(
+              height: _deviceHeight * 0.02,
             ),
             _registerForm(),
             SizedBox(
-              height: _deviceHeight * 0.05,
+              height: _deviceHeight * 0.02,
             ),
             _registerButton(),
             SizedBox(
@@ -85,36 +85,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  Widget _profileImageField() {
-    return GestureDetector(
-      onTap: () {
-        GetIt.instance.get<MediaService>().pickImageFromLibrary().then(
-          (_file) {
-            setState(
-              () {
-                _profileImage = _file;
-              },
-            );
-          },
-        );
-      },
-      child: () {
-        if (_profileImage != null) {
-          return RoundedImageFile(
-            key: UniqueKey(),
-            image: _profileImage!,
-            size: _deviceHeight * 0.15,
-          );
-        } else {
-          return RoundedImageNetwork(
-            key: UniqueKey(),
-            imagePath: "https://i.pravatar.cc/150?img=65",
-            size: _deviceHeight * 0.15,
-          );
-        }
-      }(),
+  Widget _pageTitle() {
+    return Container(
+      height: _deviceHeight * 0.14,
+      child: Scaffold(
+        body: Center(
+          child: Container(
+            height: 157.5,
+            width: 81.5,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.contain,
+                image: AssetImage('assets/images/ice-cream.png'),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
+  // const Text(
+  // 'Lemon Drop',
+  // style: TextStyle(
+  // color: Colors.white,
+  // fontSize: 40,
+  // fontWeight: FontWeight.w600,
+  // ),
+  // )
 
   Widget _registerForm() {
     return Container(

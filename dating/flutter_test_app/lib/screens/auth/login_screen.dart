@@ -1,6 +1,7 @@
 //Packages
 import 'package:flutter/material.dart';
 import 'package:flutter_test_app/constants.dart';
+import 'package:flutter_test_app/screens/auth/register_screen.dart';
 import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 
@@ -151,7 +152,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _registerAccountLink() {
     return GestureDetector(
-      onTap: () => _navigation.navigateToRoute('/register'),
+      onTap: () => _navigation.navigateToRoute(RegisterScreen.id),
       child: Container(
         child: const Text(
           'Don\'t have an account?',
