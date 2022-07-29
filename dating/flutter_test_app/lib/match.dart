@@ -75,7 +75,7 @@ class _MatchScreenState extends State<MatchScreen> {
         key: _scaffoldKey,
         body: Container(
             child: Stack(children: [
-          Container(
+          SizedBox(
             height: MediaQuery.of(context).size.height - kToolbarHeight,
             child: SwipeCards(
               matchEngine: _matchEngine!,
@@ -85,7 +85,7 @@ class _MatchScreenState extends State<MatchScreen> {
                   color: _swipeItems[index].content.color,
                   child: Text(
                     _swipeItems[index].content.text,
-                    style: TextStyle(fontSize: 100),
+                    style: const TextStyle(fontSize: 100),
                   ),
                 );
               },
